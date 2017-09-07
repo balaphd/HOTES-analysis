@@ -1,5 +1,8 @@
 
-########################## BACTERIA ##########################
+########################## BACTERIAL 16S analysis ##########################
+## removing the adaptors and bad quality reads using cutadapt and trimmomatic using default parameters
+## using FLASH software to merge the forward and reverse reads
+flash read.1.fastq read.2.fastq
 ##uses the split_libraries_fastq command to convert from fastq to fasta with quality filtering while definding sample names for each sample: resequenced individuals were given the suffix “R”. Because the command was done per sample, a dummy mapping file was used. ##
 ##combine the sequences##
 cat bact_slout_q20/slout_single_sample_q20_16s*/seqs.fna > final_demultiplexed_seqs_16S.fasta 
@@ -31,9 +34,10 @@ filter_fasta.py -f bact_open_ref_picked_otus/rep_set.fna -o bact_final_OTUs.fna 
 parallel_align_seqs_pynast.py -i bact_final_OTUs.fna -o bact_final_OTUs_pynast_aligned_seqs/ -O 6
 filter_alignment.py -o bact_final_OTUs_pynast_aligned_seqs/ -i bact_final_OTUs_pynast_aligned_seqs/bact_final_OTUs_aligned.fasta --allowed_gap_frac 0.999999 --threshold 3.0 --suppress_lane_mask_filter
 make_phylogeny.py -i bact_final_OTUs_pynast_aligned_seqs/bact_final_OTUs_aligned_pfiltered.fasta -o bact_final_OTUs.tre --root_method tree_method_default --tree_method fasttree
-########################## FUNGI ###########################
-
-
+########################## FUNGUL ITS analysis ###########################
+## removing the adaptors and bad quality reads using cutadapt and trimmomatic using default parameters
+## using FLASH software to merge the forward and reverse reads
+flash read.1.fastq read.2.fastq
 cat fung_slout_q20/slout_single_sample_q20_ITS*/seqs.fna > final_demultiplexed_seqs_ITS_all.fasta
 identify_chimeric_seqs.py -i final_demultiplexed_seqs_ITS.fasta -m usearch61 -o fung_usearch_checked_chimeras/ -r reference_db/its_12_11_otus/rep_set/97_otus.fasta
 filter_fasta.py -f final_demultiplexed_seqs_ITS_all.fasta -o final_chimeric_rmv_seqs_ITS_step1.fasta -s fung_usearch_checked_chimeras/chimeras.txt -n
