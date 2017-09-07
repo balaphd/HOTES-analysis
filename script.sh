@@ -55,11 +55,6 @@ biom convert -i fung_otu_table_mc2_min00001_w_sortmerna_tax_final_samples.biom -
 biom summarize-table -i fung_otu_table_mc2_min00001_w_sortmerna_tax_final_samples.biom -o fung_otu_table_mc2_min00001_w_sortmerna_tax_final_samples_summary.txt
 ## final fungal OTU table 
 fung_otu_table_mc2_min00001_w_rdp_tax_final_samples.biom 
-
-
-
-
-
 ########## community analyses###############
 
 ## alpha richness across samples ##
@@ -70,4 +65,4 @@ beta_diversity_through_plots.py -i bact_otu_table_mc2_w_tax_no_pynast_failures_m
 summarize_taxa.py -i bact_otu_table_mc2_w_tax_no_pynast_failures_min00001_nochloro_final_samples.biom -o bact_tax/
 summarize_taxa.py -i bact_otu_table_mc2_w_tax_no_pynast_failures_min00001_nochloro_final_samples.biom -o bact_tax_abs/ -a
 
-####################################################
+############################################################################################################################
