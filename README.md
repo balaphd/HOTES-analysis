@@ -1,2 +1,2 @@
 # HOTES-analysis
-Analysis script for HOTES project
+Analysis script for HOTES project. The steps used in the analysis were described in the script.sh file to get the same results as in the paper going to be published in Microbiome journal. Please not that we only mention the parameters used in the commands and the steps in order so that it is easy to reproduce the results. However, user has to use the correct path to the files and the output naming by themselves logically. Contact the authors for any clarification needed in the code at balamuralikrishna.jayaprakash@thl.fi
